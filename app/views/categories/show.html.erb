@@ -1,0 +1,26 @@
+<div class="row">
+  <h3><%= @category.name %>
+  <% if @category.topics.any? %>
+      <h6>Topics (<%= @category.topics.count %>)</h6>
+      <table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Number of lessons</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+        <%= render @topics %>
+        </table>
+      <% else %>
+      <div class="label" style="margin-top:25px; margin-bottom:25px;">
+      <h3>No Topics</h3>
+      </div>
+    <% end %>
+  </h3>
+</div> 
+<%= link_to 'Add topic', new_topic_path(:category => @category.id), :class => 'btn btn-large'%> 
+<%= link_to 'Edit', edit_category_path(@category), :class => 'btn btn-large' %> 
+<%= link_to 'Back', categories_path, :class => 'btn btn-large' %>

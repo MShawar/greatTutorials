@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+<h3>
+  <%= @lesson.name %>
+</h3>
+<div class="row">
+  <iframe width="560" height="349" src="<%= @lesson.video %>"></iframe>
+  </div>
+<%= link_to 'Edit', edit_lesson_path(@lesson), :class => 'btn btn-large' %> 
+<%= link_to 'Back', Topic.find(@lesson.topic_id), :class => 'btn btn-large' %>
