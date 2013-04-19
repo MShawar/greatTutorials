@@ -1,0 +1,17 @@
+<div class="center hero-unit">
+      <h1>Welcome to GTuts</h1>
+    <p>
+      <h3>Where you can watch great tutorials and ask questions about anything!
+      </h3>
+    </p>
+<p style="margin-top:25px; margin-bottom:25px;">
+    <%= link_to "Go to tutorials", categories_path, 
+                                class: "btn btn-large btn-primary" %>
+                              </p>
+<% if !signed_in? %>
+      <p style="margin-top:25px; margin-bottom:25px;">
+    <%= link_to "Sign up now!",  new_user_registration_path, 
+                                class: "btn btn-large btn-primary" %>
+                              </p>             
+<% end %> 
+</div>
