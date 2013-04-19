@@ -3,7 +3,9 @@
 
   <tr>
     <td><%= link_to topic.name, topic, :class => 'btn btn-mini' %></td>
-    <td><%= topic.lessons.count %></td>
-    <td><%= link_to 'Edit', edit_topic_path(topic), :class => 'btn btn-mini' %></td>
+    <td>Lessons(<%= topic.lessons.count %>)</td>
+    <%if current_user.try(:admin?)%>
+                       <td><%= link_to 'Edit', edit_topic_path(topic), :class => 'btn btn-mini' %></td>
     <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-mini btn-danger'%></td>
+                 <% end %> 
   </tr>

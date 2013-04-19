@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
+
   # GET /lessons
   # GET /lessons.json
   def index

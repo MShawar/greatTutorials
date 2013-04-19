@@ -1,1 +1,5 @@
-<%= render 'form' %>
+<%if current_user.try(:admin?)%>
+                     <%= render 'form' %>
+                     <% else %>
+                     <% redirect_to root_url %>
+                 <% end %> 

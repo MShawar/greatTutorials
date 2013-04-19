@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
   <tr>
     <td><%= link_to lesson.name, lesson, :class => 'btn btn-mini' %></td>
-    <td><%= link_to 'Edit', edit_lesson_path(lesson), :class => 'btn btn-mini' %></td>
+    <%if current_user.try(:admin?)%>
+                     <td><%= link_to 'Edit', edit_lesson_path(lesson), :class => 'btn btn-mini' %></td>
     <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-mini btn-danger'%></td>
+                 <% end %> 
   </tr>

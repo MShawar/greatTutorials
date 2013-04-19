@@ -1,6 +1,6 @@
+<div class="center hero-unit" style="height:30px">
 <p id="notice"><%= notice %></p>
 
-<div class="row">
   <h3><%= @topic.name %>
   <% if @topic.lessons.any? %>
       <h6>Lessons (<%= @topic.lessons.count%>)</h6>
@@ -19,7 +19,10 @@
       </div>
     <% end %>
   </h3>
-</div> 
-<%= link_to 'Add Lesson', new_lesson_path(:topicid => @topic.id), :class => 'btn btn-large'%> 
+  <%if current_user.try(:admin?)%>
+                     <%= link_to 'Add Lesson', new_lesson_path(:topicid => @topic.id), :class => 'btn btn-large'%> 
 <%= link_to 'Edit', edit_topic_path(@topic), :class => 'btn btn-large' %> 
+                 <% end %> 
+
 <%= link_to 'Back', Category.find(@topic.category_id), :class => 'btn btn-large' %>
+</div>

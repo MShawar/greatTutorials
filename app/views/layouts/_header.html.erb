@@ -1,9 +1,16 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "GTuts", root_path, id: "logo" %>
+      <a class="brand"><%= link_to "GTuts", root_path, id: "logo" %></a>
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav  pull-right">
+        <% if signed_in? %>
+      <li style="margin-top:10px">logged in as: <%= current_user.email %></il>
+        <li><%= link_to "logout", destroy_user_session_path, :method => :delete, data: { confirm: 'Are you sure?' } %></il>
+      <% else %>
+      <li><%= link_to "Sign up", new_user_registration_path%></il>
+      <li><%= link_to "Sign in",  user_session_path%></il>
+      <% end %>
           <li><%= link_to "Home", root_path %></li>
         </ul>
       </nav>

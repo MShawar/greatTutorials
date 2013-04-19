@@ -1,15 +1,11 @@
-<div class="row">
-  <h3><%= @category.name %>
+<div class="center hero-unit" style="height:30px">
+  <h3><%= @category.name %></h3>
   <% if @category.topics.any? %>
       <h6>Topics (<%= @category.topics.count %>)</h6>
       <table class="table table-striped">
   <thead>
   <tr>
     <th>Name</th>
-    <th>Number of lessons</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 </thead>
         <%= render @topics %>
@@ -20,7 +16,10 @@
       </div>
     <% end %>
   </h3>
-</div> 
-<%= link_to 'Add topic', new_topic_path(:category => @category.id), :class => 'btn btn-large'%> 
+<%if current_user.try(:admin?)%>
+                    <%= link_to 'Add topic', new_topic_path(:category => @category.id), :class => 'btn btn-large'%> 
 <%= link_to 'Edit', edit_category_path(@category), :class => 'btn btn-large' %> 
-<%= link_to 'Back', categories_path, :class => 'btn btn-large' %>
+                 <% end %> 
+
+<%= link_to 'Back', root_url, :class => 'btn btn-large' %>
+</div> 
