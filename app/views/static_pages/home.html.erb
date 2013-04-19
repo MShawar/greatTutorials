@@ -14,9 +14,4 @@
                                 class: "btn btn-large btn-primary" %>
                               </p>             
 <% end %> 
-
-<% if signed_in? %>
-      
-    <%= current_user.update_attribute :admin, true%>            
-<% end %> 
 </div>
